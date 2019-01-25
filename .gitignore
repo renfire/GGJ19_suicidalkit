@@ -1,3 +1,4 @@
 
 # PHPStorm IDE
 .idea
+log/*.log
