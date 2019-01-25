@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# everything else redirected to index.php with language
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
