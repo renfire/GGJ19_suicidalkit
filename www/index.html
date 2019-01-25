@@ -31,7 +31,7 @@
 		</div>
 
 		<script src="js/three.js-master/build/three.js"></script>
-		<script src="js/loaders/OBJLoader.js"></script>
+		<script src="js/three.js-master/examples/js/loaders/OBJLoader.js"></script>
 
 		<script>
 
@@ -56,7 +56,8 @@
 				document.body.appendChild( container );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
-				camera.position.z = 250;
+				camera.position.z = 900;
+				camera.position.x += 900;
 
 				// scene
 
@@ -79,7 +80,7 @@
 
 					} );
 
-					object.position.y = - 95;
+					object.position.y = - 0;
 					scene.add( object );
 
 				}
@@ -96,7 +97,7 @@
 
 				var textureLoader = new THREE.TextureLoader( manager );
 
-				var texture = textureLoader.load( 'textures/UV_Grid_Sm.jpg' );
+				var texture = textureLoader.load( 'js/three.js-master/examples/textures/UV_Grid_Sm.jpg' );
 
 				// model
 
@@ -114,8 +115,10 @@
 				function onError() {}
 
 				var loader = new THREE.OBJLoader( manager );
+				// var url = 'js/three.js-master/examples/models/obj/male02/male02.obj';
+				var url = 'models/Casa_Bona.obj';
 
-				loader.load( 'models/obj/male02/male02.obj', function ( obj ) {
+				loader.load( url, function ( obj ) {
 
 					object = obj;
 
@@ -166,13 +169,12 @@
 
 			function render() {
 
-				camera.position.x += ( mouseX - camera.position.x ) * .05;
-				camera.position.y += ( - mouseY - camera.position.y ) * .05;
+				camera.position.x += ( mouseX - camera.position.x ) * .5;
+				camera.position.y += ( - mouseY - camera.position.y ) * .5;
 
 				camera.lookAt( scene.position );
 
 				renderer.render( scene, camera );
-
 			}
 
 		</script>
